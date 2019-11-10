@@ -12,12 +12,14 @@ public class Swimmer extends Thread {
 
 	public Swimmer(String name) {
 		this.name = name;
+		
 	}
 
 	@Override
 	public void run() {
 		for (int i = 0; i < 5; i++) {
-			SynchronizedSwimming.takeTurn(new Swimmer("Ethan"));
+			SynchronizedSwimming.takeTurn(new Swimmer("you"));
+			SynchronizedSwimming.takeTurn(new Swimmer("nobody"));
 		}
 	}
 }

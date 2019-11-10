@@ -24,8 +24,8 @@ public class SynchronizedSwimming {
 	}
 
 	/*
-	 * Refactor this method using a synchronized block to ensure a lock must be held on
-	 * the swimmingPool object until the swimmer has finished their lap.
+	 * Refactor this method using a synchronized block to ensure a lock must be held
+	 * on the swimmingPool object until the swimmer has finished their lap.
 	 */
 	private static void swimLap(Swimmer swimmer) throws InterruptedException {
 		System.out.println(swimmer.name + " started a lap!");
@@ -34,10 +34,15 @@ public class SynchronizedSwimming {
 	}
 
 	public static void takeTurn(Swimmer swimmer) {
-		try {
-			swimLap(swimmer);
-			Thread.sleep(100);
-		} catch (InterruptedException ignore) {
+		synchronized (swimmingPool) {
+			
+			try {
+				swimLap(swimmer);
+				Thread.sleep(100);
+			} catch (InterruptedException ignore) {
+
+			}
 		}
 	}
+
 }
