@@ -4,17 +4,16 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Worker implements Runnable {
 	ConcurrentLinkedQueue<Task>TaskQueue;
-public Worker() {
+public Worker(ConcurrentLinkedQueue<Task> TaskQueue) {
 	// TODO Auto-generated constructor stub
-	ConcurrentLinkedQueue<Task> TaskQueue = new ConcurrentLinkedQueue<Task>();
+	TaskQueue = new ConcurrentLinkedQueue<Task>();
 	
 }
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		while (TaskQueue != null) {
-		TaskQueue.remove();
-		
+		while (!TaskQueue.isEmpty()) {
+		TaskQueue.remove().perform();
 		}
 	}
 
