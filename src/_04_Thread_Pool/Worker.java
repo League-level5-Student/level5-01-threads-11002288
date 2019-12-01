@@ -6,7 +6,7 @@ public class Worker implements Runnable {
 	ConcurrentLinkedQueue<Task>TaskQueue;
 public Worker(ConcurrentLinkedQueue<Task> TaskQueue) {
 	// TODO Auto-generated constructor stub
-	TaskQueue = new ConcurrentLinkedQueue<Task>();
+	this.TaskQueue = TaskQueue;
 	
 }
 	@Override

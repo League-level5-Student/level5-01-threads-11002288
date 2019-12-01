@@ -8,11 +8,11 @@ public class ThreadPool {
 
 	public ThreadPool(int totalThreads) {
 		// TODO Auto-generated constructor stub
+		TaskQueue = new ConcurrentLinkedQueue<Task>();
 		threads = new Thread[totalThreads];
 		for (int i = 0; i < threads.length; i++) {
 			threads[i] = new Thread(new Worker(TaskQueue));
 		}
-		TaskQueue = new ConcurrentLinkedQueue<Task>();
 	}
 
 	public void addTask(Task task) {
